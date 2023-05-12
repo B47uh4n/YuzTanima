@@ -123,7 +123,7 @@ class FaceRecognition:
                 cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 1)
 
             # Sonucta ulastigimiz gorseli goruntuluyoruz.
-            cv2.imshow('Face Recognition', frame)
+            cv2.imshow('Yuz Tanima -cikmak icin Q basiniz.', frame)
 
             # Programdan cikmak icin q tusuna basilmasini bekliyoruz
             if cv2.waitKey(1) == ord('q'):
@@ -141,4 +141,4 @@ if __name__ == '__main__':
     fr = FaceRecognition()
     fr.run_recognition()
 
-#Batuhan
+#Batuhan Demirci

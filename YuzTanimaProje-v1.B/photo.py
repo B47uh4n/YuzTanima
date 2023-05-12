@@ -8,16 +8,17 @@ from recognition import FaceRecognition
 
 
 # ayrica guide kayit yap tusuna basinca yeni bir pencere gelse gerekli bilgilendrmeleri yapsa yuzunuzu kameraya ornekteki gibi gosterin,
-# Batuhan
+# Batuhan Demirci
 
 
 def Take():
     #degiskenler
     vid = cv2.VideoCapture(0)
-    directory = r"C:\Users\90545\Desktop\PythonCalismalari\FaceDetection\webcam_face_recognition-master\faces"
-    a=1
+    directory = r"faces" #yuz fotograflarimi faces klasorunde tutacagim bu yuzden programin duzgunce calisabilmesi icin faces klasorunun silinmemesi gerek.
+    cwd = os.getcwd() #programin working dir her pcde farkli olacagi icin bu veriyi dinamik olarak aliyorum.
+
+    #faces klasorundeki imglardan bir liste olusturuyorum bu liste sayesinde kontroller saglayabilicem.
     RegisteredNames = []
-    #faces klasorunden list yapcam imglardan
     for image in os.listdir('faces'):
         RegisteredNames.append(image)
         
@@ -34,11 +35,10 @@ def Take():
     elif userN == "":
         finishLabel.configure(text="Lutfen kutucugu doldurunuz!!", text_color="red")
     else:
-        finishLabel.configure(text="-------------Yuzunuz sisteme basariyla kaydedildi!!-------------\n", text_color="green")
+        finishLabel.configure(text="---------------Yuzunuz sisteme basariyla kaydedildi!!---------------\n", text_color="green")
 
         while(True):
             ret, image = vid.read()
-            a+=1
             cv2.imshow("image", image)
 
             if cv2.waitKey(1) & 0xFF == ord("q"):
@@ -47,10 +47,9 @@ def Take():
             os.chdir(directory)
             cv2.imwrite(f"{userN}.png", image)
 
-            os.chdir(r"C:\Users\90545\Desktop\PythonCalismalari\FaceDetection\webcam_face_recognition-master") # burasi
+            os.chdir(cwd) # burasi
             
            
-
         vid.release()
         #bu butun pencereleri kapatma kodu sikinti olabilir dikkat.
         cv2.destroyAllWindows()
@@ -93,6 +92,9 @@ title2.pack(padx=10, pady=10)
 fr = FaceRecognition()
 go2 = customtkinter.CTkButton(mylabelframe, text="Yuz Tanima",command=lambda : [fr.encode_faces(), fr.run_recognition()])
 go2.pack(padx=10,pady=10)
+
+sign = customtkinter.CTkLabel(app, text="Batuhan Proje Grubu")
+sign.pack(padx=10)
 
 app.mainloop()
 
