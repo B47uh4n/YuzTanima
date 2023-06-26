@@ -5,11 +5,7 @@ import customtkinter
 from recognition import FaceRecognition
 
 
-
-
-# ayrica guide kayit yap tusuna basinca yeni bir pencere gelse gerekli bilgilendrmeleri yapsa yuzunuzu kameraya ornekteki gibi gosterin,
 # Batuhan Demirci
-
 
 def Take():
     #degiskenler
@@ -26,7 +22,6 @@ def Take():
     try:
         userN = name.get()
         userPng = f"{userN}.png"
-        userJpg = f"{userN}.jpg"
     except:
         finishLabel.configure(text="Hata olustu")
 
@@ -93,7 +88,7 @@ fr = FaceRecognition()
 go2 = customtkinter.CTkButton(mylabelframe, text="Yuz Tanima",command=lambda : [fr.encode_faces(), fr.run_recognition()])
 go2.pack(padx=10,pady=10)
 
-sign = customtkinter.CTkLabel(app, text="Batuhan Proje Grubu")
+sign = customtkinter.CTkLabel(app, text="Batuhan Demirci")
 sign.pack(padx=10)
 
 app.mainloop()

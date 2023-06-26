@@ -26,7 +26,7 @@ class FaceRecognition:
     known_face_names = []
     process_current_frame = True
 
-    #constructor olarak olusan nesne encode_faces fonksiyonumu cagirsin istiyorum.
+    #constructor olarak olusan nesne encode_faces fonksiyonu cagirmaktan vazgectik.
     #def __init__(self):
      #   self.encode_faces()
         
@@ -70,7 +70,6 @@ class FaceRecognition:
                 # Fakat face_recognition kutuphanesini kullanmak icin gorseli RGB renk bandina cevirmemiz gerekiyor
                 rgb_small_frame = small_frame[:, :, ::-1]
 
-                # face encodings in the current frame of video
                 # calisma zamaninda videonun o anki karesinde olan suratlarin konumunu buluyorum
                 self.face_locations = face_recognition.face_locations(small_frame)
 
