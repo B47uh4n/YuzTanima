@@ -1,0 +1,1 @@
+Tanınması gereken suratlara ait fotoğraflar bu dizinin altında .png uzantısı ile bulunmalı.
